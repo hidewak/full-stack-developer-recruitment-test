@@ -22,12 +22,12 @@ export const generate = (input: Input, nbDays: number): Output => {
     let output = {}
 
     for (let index = 0; index < nbDays; index++) {
-        let newDate = date.add(1, 'd')
-    
         output = {
             ...output,
-            [ newDate.format(OUTPUT_DATE_FORMAT) ]: getSlots(newDate, input, sessionDuration),
+            [ date.format(OUTPUT_DATE_FORMAT) ]: getSlots(date, input, sessionDuration),
         }
+
+        date.add(1, 'd')
     }
 
     return output
